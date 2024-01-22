@@ -69,9 +69,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Browser_Rendering_Mechanism" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/jacktsai-official-site/2024/01/21/hello-world6/" class="article-date">
+    <a href="/jacktsai-official-site/2024/01/21/Browser_Rendering_Mechanism/" class="article-date">
   <time class="dt-published" datetime="2024-01-21T08:39:44.066Z" itemprop="datePublished">2024-01-21</time>
 </a>
     
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/jacktsai-official-site/2024/01/21/hello-world6/">瀏覽器渲染機制</a>
+      <a class="p-name article-title" href="/jacktsai-official-site/2024/01/21/Browser_Rendering_Mechanism/">瀏覽器渲染機制</a>
     </h1>
   
 
@@ -91,24 +91,28 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p><a target="_blank" rel="noopener" href="https://medium.com/hannah-lin/%E7%86%B1%E9%96%80%E9%9D%A2%E8%A9%A6%E9%A1%8C-%E5%BE%9E%E8%BC%B8%E5%85%A5%E7%B6%B2%E5%9D%80%E5%88%97%E5%88%B0%E6%B8%B2%E6%9F%93%E7%95%AB%E9%9D%A2-%E9%81%8E%E7%A8%8B%E7%B6%93%E6%AD%B7%E4%BA%86%E4%BB%80%E9%BA%BC%E4%BA%8B-4a6cafefe78a">參考資料</a></p>
+<p><img src="/jacktsai-official-site/assets/Render.png"></p>
+<p>Enumerated in a more sophisticated manner, the process of a browser fetching a webpage is as follows:</p>
+<ol>
+<li>The browser initially checks its cache. If the requested object is present and current, the subsequent steps are bypassed.</li>
+<li>The browser requests the server’s IP address from the operating system.</li>
+<li>The operating system conducts a DNS lookup and returns the IP address to the browser].</li>
+<li>The browser establishes a TCP connection with the server. This process is notably more intricate with HTTPS].</li>
+<li>Through the TCP connection, the browser sends the HTTP request.</li>
+<li>The browser receives the HTTP response and may either close the TCP connection or reuse it for another request.</li>
+<li>The browser examines the response to determine if it is a redirect or a conditional response (3xx result status codes), an authorization request (401), an error (4xx and 5xx), etc. These are processed differently from standard responses (2xx).</li>
+<li>If the response is cacheable, it is stored in the cache.</li>
+<li>The browser determines the appropriate action for the response (e.g., is it an HTML page, an image, a sound clip?).</li>
+<li>The browser renders the response, or presents a download dialog for unrecognized types.</li>
+<li>HTML begins parsing to the DOM Tree, and CSS parsing to the CSSOM Tree, then combines them to render the tree.</li>
+<li>The layout is run and painted to the screen.</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/hello-world6/" data-id="clrouxqsv00047gvr2pk921j3" data-title="瀏覽器渲染機制" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/Browser_Rendering_Mechanism/" data-id="clrovnnde00003cvr1owh5fl0" data-title="瀏覽器渲染機制" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -142,7 +146,8 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="域名-Domain-Name"><a href="#域名-Domain-Name" class="headerlink" title="域名 Domain Name"></a>域名 Domain Name</h2><p>域名 &#x3D; 網域名稱 &#x3D; 網址</p>
+        <p><a target="_blank" rel="noopener" href="https://www.shubo.io/what-happens-when-you-type-a-url-in-the-browser-and-press-enter/#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90-dns-lookup">參考資料壹</a><br><a target="_blank" rel="noopener" href="https://medium.com/hannah-lin/%E7%86%B1%E9%96%80%E9%9D%A2%E8%A9%A6%E9%A1%8C-%E5%BE%9E%E8%BC%B8%E5%85%A5%E7%B6%B2%E5%9D%80%E5%88%97%E5%88%B0%E6%B8%B2%E6%9F%93%E7%95%AB%E9%9D%A2-%E9%81%8E%E7%A8%8B%E7%B6%93%E6%AD%B7%E4%BA%86%E4%BB%80%E9%BA%BC%E4%BA%8B-4a6cafefe78a">參考資料貳</a></p>
+<h2 id="域名-Domain-Name"><a href="#域名-Domain-Name" class="headerlink" title="域名 Domain Name"></a>域名 Domain Name</h2><p>域名 &#x3D; 網域名稱 &#x3D; 網址</p>
 <p>以 Luka 的網站來說，「<code>codeshiba.com</code>」就是他網站的 domain name、域名、網域、網域名稱，也可以叫做網址。</p>
 <p>如果我們把網站比喻做一個家的話，域名就是你家的門牌，它的功能就是讓世界各地的人找得到你家。</p>
 <p>每個網站都有一個 IP，像是「155.132.163.121」。</p>
@@ -152,8 +157,7 @@
 <p>你也可以像CEO一樣，建立屬於自己的網域名稱。</p>
 <h2 id="域名系統-Domain-Name-System"><a href="#域名系統-Domain-Name-System" class="headerlink" title="域名系統 Domain Name System"></a>域名系統 Domain Name System</h2><p>域名系統（Domain Name System，DNS）是互聯網上的一個分散式資料庫，用於將易於記憶的域名（例如 <code>www.example.com</code>）轉換為IP地址（例如 192.0.2.1），以便於網絡設備之間的通信。</p>
 <p>舉例來說，當我們在任何裝置上輸入「<code>apple.com</code>」，我們的電腦會把資料傳給域名系統。域名系統（DNS）會尋找對應到的 IP，將我們帶往 Apple 的網站。對要架網站的人來說的話，最重要的就是買一個自己喜歡的域名，然後將這個域名跟主機連結起來。</p>
-<h2 id="域名解析-DNS-Lookup"><a href="#域名解析-DNS-Lookup" class="headerlink" title="域名解析 DNS Lookup"></a>域名解析 DNS Lookup</h2><p><a target="_blank" rel="noopener" href="https://www.shubo.io/what-happens-when-you-type-a-url-in-the-browser-and-press-enter/#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90-dns-lookup">參考資料</a></p>
-<p>輸入網址之後，首先瀏覽器需要向 DNS 找到網域（Domain）所對應的 IP。</p>
+<h2 id="域名解析-DNS-Lookup"><a href="#域名解析-DNS-Lookup" class="headerlink" title="域名解析 DNS Lookup"></a>域名解析 DNS Lookup</h2><p>輸入網址之後，首先瀏覽器需要向 DNS 找到網域（Domain）所對應的 IP。</p>
 <p>Domain Name System 是用來儲存網域對應到的 IP 位址的服務。</p>
 <p>在實際向 DNS 發出請求之前，瀏覽器會依序檢查以下 Cache，如果找不到就會往下一層 Cache 找：</p>
 <ol>
@@ -165,11 +169,12 @@
 <p>如果這些 Cache 中沒有該網域，Internet Service Provider 會發起 DNS Lookup：ISP 的 DNS Server 會問其他 Name Server，Name Server 又會問其他 Name Server，直到找到我們需要的 Domain，這種搜尋方式是一種遞迴搜尋，而發起搜尋的 ISP DNS Server 稱為 DNS Recursor。</p>
 <p>舉例來說，如果要找到 <code>maps.google.com</code> 的 IP，DNS Recursor 會先問 root name server，接著請求會被轉導至 <code>.com</code> Name Server，接著請求會再被轉導到 <code>google.com</code> Name Server，它包含了一筆 <code>maps.google.com</code> 的紀錄，於是將找到的 IP 返回。</p>
 <p><img src="/jacktsai-official-site/assets/DNS_Lookup.png" alt="DNS Lookup"></p>
+<h2 id="域名如何轉成-IP"><a href="#域名如何轉成-IP" class="headerlink" title="域名如何轉成 IP"></a>域名如何轉成 IP</h2><p><img src="/jacktsai-official-site/assets/fromDN2IP.jpg"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/DN_DNS_DNSLookup/" data-id="clrouxqsu00027gvrfg8p0dh2" data-title="什麼是域名、域名系統以及域名解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/DN_DNS_DNSLookup/" data-id="clrovnndn00013cvr3sqh8bxe" data-title="什麼是域名、域名系統以及域名解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -212,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/TCPvsUDP/" data-id="clrouxqsp00017gvrgyuq06ud" data-title="什麼是 TCP 和 UDP？兩者的差異？" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/TCPvsUDP/" data-id="clrovnndo00023cvr4aim74f3" data-title="什麼是 TCP 和 UDP？兩者的差異？" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -263,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/hello-world3/" data-id="clrouxqsw00057gvreelv52me" data-title="Hello World3" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/hello-world3/" data-id="clrovnndq00053cvrh1ohhmlw" data-title="Hello World3" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -314,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/hello-world2/" data-id="clrouxqsv00037gvrempl0akg" data-title="Hello World2" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/hello-world2/" data-id="clrovnndp00043cvrblm70mpi" data-title="Hello World2" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -365,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/hello-world/" data-id="clrouxqsj00007gvr0qct750p" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/hello-world/" data-id="clrovnndo00033cvrc8swexp8" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -408,7 +413,7 @@
       <ul>
         
           <li>
-            <a href="/jacktsai-official-site/2024/01/21/hello-world6/">瀏覽器渲染機制</a>
+            <a href="/jacktsai-official-site/2024/01/21/Browser_Rendering_Mechanism/">瀏覽器渲染機制</a>
           </li>
         
           <li>
