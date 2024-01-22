@@ -4,19 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>什麼是域名、域名系統以及 DNS Lookup | Jack Tsai&#39;s Official Site</title>
+  <title>什麼是域名、域名系統以及域名解析 | Jack Tsai&#39;s Official Site</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="域名 Domain Name域名 &#x3D; 網域名稱 &#x3D; 網址 以 Luka 的網站來說，「codeshiba.com」就是他網站的 domain name、域名、網域、網域名稱，也可以叫做網址。 如果我們把網站比喻做一個家的話，域名就是你家的門牌，它的功能就是讓世界各地的人找得到你家。 每個網站都有一個 IP，像是「155.132.163.121」。 這串數字是我隨意舉的例子，讓大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="什麼是域名、域名系統以及 DNS Lookup">
-<meta property="og:url" content="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/hello-world5/index.html">
+<meta property="og:title" content="什麼是域名、域名系統以及域名解析">
+<meta property="og:url" content="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/DN_DNS_DNSLookup/index.html">
 <meta property="og:site_name" content="Jack Tsai&#39;s Official Site">
 <meta property="og:description" content="域名 Domain Name域名 &#x3D; 網域名稱 &#x3D; 網址 以 Luka 的網站來說，「codeshiba.com」就是他網站的 domain name、域名、網域、網域名稱，也可以叫做網址。 如果我們把網站比喻做一個家的話，域名就是你家的門牌，它的功能就是讓世界各地的人找得到你家。 每個網站都有一個 IP，像是「155.132.163.121」。 這串數字是我隨意舉的例子，讓大">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://jackdatsai.github.io/jacktsai-official-site/assets/DNS_Lookup.png">
 <meta property="article:published_time" content="2024-01-21T08:39:43.726Z">
-<meta property="article:modified_time" content="2024-01-22T10:47:23.318Z">
+<meta property="article:modified_time" content="2024-01-22T11:31:03.685Z">
 <meta property="article:author" content="Jack Tsai">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackdatsai.github.io/jacktsai-official-site/assets/DNS_Lookup.png">
   
     <link rel="alternate" href="/jacktsai-official-site/atom.xml" title="Jack Tsai's Official Site" type="application/atom+xml">
   
@@ -71,9 +73,9 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-hello-world5" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-DN_DNS_DNSLookup" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/jacktsai-official-site/2024/01/21/hello-world5/" class="article-date">
+    <a href="/jacktsai-official-site/2024/01/21/DN_DNS_DNSLookup/" class="article-date">
   <time class="dt-published" datetime="2024-01-21T08:39:43.726Z" itemprop="datePublished">2024-01-21</time>
 </a>
     
@@ -85,7 +87,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      什麼是域名、域名系統以及 DNS Lookup
+      什麼是域名、域名系統以及域名解析
     </h1>
   
 
@@ -103,11 +105,24 @@
 <p>你也可以像CEO一樣，建立屬於自己的網域名稱。</p>
 <h2 id="域名系統-Domain-Name-System"><a href="#域名系統-Domain-Name-System" class="headerlink" title="域名系統 Domain Name System"></a>域名系統 Domain Name System</h2><p>域名系統（Domain Name System，DNS）是互聯網上的一個分散式資料庫，用於將易於記憶的域名（例如 <code>www.example.com</code>）轉換為IP地址（例如 192.0.2.1），以便於網絡設備之間的通信。</p>
 <p>舉例來說，當我們在任何裝置上輸入「<code>apple.com</code>」，我們的電腦會把資料傳給域名系統。域名系統（DNS）會尋找對應到的 IP，將我們帶往 Apple 的網站。對要架網站的人來說的話，最重要的就是買一個自己喜歡的域名，然後將這個域名跟主機連結起來。</p>
-<h2 id="DNS-Lookup"><a href="#DNS-Lookup" class="headerlink" title="DNS Lookup"></a>DNS Lookup</h2>
+<h2 id="域名解析-DNS-Lookup"><a href="#域名解析-DNS-Lookup" class="headerlink" title="域名解析 DNS Lookup"></a>域名解析 DNS Lookup</h2><p><a target="_blank" rel="noopener" href="https://www.shubo.io/what-happens-when-you-type-a-url-in-the-browser-and-press-enter/#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90-dns-lookup">參考連結</a></p>
+<p>輸入網址之後，首先瀏覽器需要向 DNS 找到網域（Domain）所對應的 IP。</p>
+<p>Domain Name System 是用來儲存網域對應到的 IP 位址的服務。</p>
+<p>在實際向 DNS 發出請求之前，瀏覽器會依序檢查以下 Cache，如果找不到就會往下一層 Cache 找：</p>
+<ol>
+<li>瀏覽器 Cache</li>
+<li>OS Cache</li>
+<li>Router Cache</li>
+<li>ISP Cache</li>
+</ol>
+<p>如果這些 Cache 中沒有該網域，Internet Service Provider 會發起 DNS Lookup：ISP 的 DNS Server 會問其他 Name Server，Name Server 又會問其他 Name Server，直到找到我們需要的 Domain，這種搜尋方式是一種遞迴搜尋，而發起搜尋的 ISP DNS Server 稱為 DNS Recursor。</p>
+<p>舉例來說，如果要找到 <code>maps.google.com</code> 的 IP，DNS Recursor 會先問 root name server，接著請求會被轉導至 <code>.com</code> Name Server，接著請求會再被轉導到 <code>google.com</code> Name Server，它包含了一筆 <code>maps.google.com</code> 的紀錄，於是將找到的 IP 返回。</p>
+<p><img src="/jacktsai-official-site/assets/DNS_Lookup.png" alt="DNS Lookup"></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/hello-world5/" data-id="clrot04ub0005bkvrbkhueh0k" data-title="什麼是域名、域名系統以及 DNS Lookup" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://jackdatsai.github.io/jacktsai-official-site/2024/01/21/DN_DNS_DNSLookup/" data-id="clroultg60004jovrfi1b0r2y" data-title="什麼是域名、域名系統以及域名解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -171,7 +186,7 @@
           </li>
         
           <li>
-            <a href="/jacktsai-official-site/2024/01/21/hello-world5/">什麼是域名、域名系統以及 DNS Lookup</a>
+            <a href="/jacktsai-official-site/2024/01/21/DN_DNS_DNSLookup/">什麼是域名、域名系統以及域名解析</a>
           </li>
         
           <li>
